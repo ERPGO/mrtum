@@ -3,15 +3,14 @@
     'name': "expeditor_management",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Expeditor management module""",
 
     'description': """
-        Long description of module's purpose
+        Expeditor management module
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "ERPGO",
+    'website': "http://www.erpgo.az",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -20,7 +19,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base',
+                'stock',
+                'stock_account',
+                'sale_stock'
+    ],
 
     # always loaded
     'data': [
