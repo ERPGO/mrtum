@@ -23,7 +23,7 @@
                 'stock',
                 'stock_account',
                 'sale_stock'
-    ],
+                ],
 
     # always loaded
     'data': [
