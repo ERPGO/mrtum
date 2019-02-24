@@ -6,6 +6,7 @@ from datetime import datetime
 
 class expeditor_management(models.Model):
     _name = "expeditor_management.expeditor_management"
+    _description = "Expeditor Management"
 
     name = fields.Char(string="Name", default=datetime.today())
     order_id = fields.Many2one('sale.order', string="Sale Order")
