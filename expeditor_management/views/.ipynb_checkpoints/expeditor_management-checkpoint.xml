@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <!-- list view definition -->
+        <record model="ir.ui.view" id="expeditor_management.list">
+            <field name="name">expeditor_management list</field>
+            <field name="model">expeditor_management.expeditor_management</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Date"/>
+                    <field name="order_id"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view definition -->
+        <record model="ir.ui.view" id="expeditor_management.form">
+            <field name="name">expeditor_management form</field>
+            <field name="model">expeditor_management.expeditor_management</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                        <sheet string="Proof of Requests">
+                            <group name="proof_of_request_up">
+                                <group name="proof_of_request_up_left"/>
+                                <field name="order_id" string="Sale Order"/>
+                                <field name="location_id" string="Customer Location"/>
+                                <field name="street" string="Street name"/>
+                                <field name="map_location"/>
+                            </group>
+                            <group name="proof_of_request_up_right">
+                                <field name="proof_image" widget="image"
+                                       string="Image"/>
+                            </group>
+                            <notebook name="proof_of_request_notebook">
+                                <page name="Orders" string="Orders">
+                                    <field name="order_line" string="Order Lines"
+                                           widget="section_and_note_one2many"/>
+                                </page>
+                            </notebook>
+                        </sheet>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="expeditor_management.action_window">
+            <field name="name">Expeditor requests</field>
+            <field name="res_model">expeditor_management.expeditor_management</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem name="Proof of Requests" id="expeditor_management.menu_1" parent="stock.menu_stock_warehouse_mgmt"
+                  action="expeditor_management.action_window"/>
+    </data>
+</odoo>

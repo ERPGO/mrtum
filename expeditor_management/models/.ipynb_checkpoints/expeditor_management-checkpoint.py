@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import datetime
+from datetime import datetime, date
 
 
 class expeditor_management(models.Model):
     _name = "expeditor_management.expeditor_management"
-    _descripton = "Expeditor Management"
+    _description = "Expeditor Management"
 
-    name = fields.Char(string="Name", default=datetime.today())
+    name = fields.Char(string="Name", default=date.today())
     order_id = fields.Many2one('sale.order', string="Sale Order")
     order_line = fields.One2many('sale.order.line', related='order_id.order_line')
     location_id = fields.Many2one(string="Customer Location", related='order_id.location_id')
