@@ -5,7 +5,7 @@ from datetime import datetime, date
 
 
 class expeditor_management(models.Model):
-    _name = "expeditor_management.expeditor_management"
+    _name = "expeditor_management"
     _description = "Expeditor Management"
 
     name = fields.Char(string="Name", default=date.today())

@@ -1,10 +1,9 @@
 <odoo>
     <data>
         <!-- list view definition -->
-        <record model="ir.ui.view" id="expeditor_management.list">
+        <record model="ir.ui.view" id="expeditor_management_list">
             <field name="name">Expeditor requests list</field>
-            <field name="model">expeditor_management.expeditor_management</field>
-            <field name="type">tree</field>
+            <field name="model">expeditor_management</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name" string="Date"/>
@@ -15,48 +14,50 @@
         </record>
 
         <!-- Form view definition -->
-        <record model="ir.ui.view" id="expeditor_management.form">
-            <field name="name">Expeditor requests form</field>
-            <field name="model">expeditor_management.expeditor_management</field>
+        <record id="expeditor_management_requests_form"
+                model="ir.ui.view">
+            <field name="field_parent" eval="False"/>
+            <field name="model">expeditor_management</field>
+            <field name="name">Expeditor Requests View Form</field>
             <field name="type">form</field>
+            <field name="active" eval="True"/>
             <field name="arch" type="xml">
-                <data>
-                    <form>
-                        <sheet string="Expeditor Requests">
-                            <group name="proof_of_request_up">
-                                <group name="proof_of_request_up_left">
-                                    <field name="order_id" string="Sale Order"/>
-                                    <field name="partner_id" string="Customer"/>
-                                    <field name="location_id" string="Customer Location"/>
-                                    <field name="street" string="Street name"/>
-                                    <field name="map_location" string="Map Location"/>
-                                </group>
-                                <group name="proof_of_request_up_right">
-                                    <field name="proof_image" widget="image" string="Image"
-                                           options="{&quot;size&quot;:[270,270]}"/>
-                                </group>
+                <form>
+                    <sheet string="Expeditor Requests">
+                        <group name="proof_of_request_up">
+                            <group name="proof_of_request_up_left">
+                                <field name="order_id" string="Sale Order"/>
+                                <field name="partner_id" string="Customer"/>
+                                <field name="location_id" string="Customer Location"/>
+                                <field name="street" string="Street name"/>
+                                <field name="map_location" string="Map Location"/>
                             </group>
-                            <notebook name="proof_of_request_notebook">
-                                <page name="Orders" string="Orders">
-                                    <field name="order_line">
-                                        <tree>
-                                            <field name="name" string="Product"/>
-                                            <field name="product_uom_qty"/>
-                                            <field name="price_subtotal"/>
-                                        </tree>
-                                    </field>
-                                </page>
-                            </notebook>
-                        </sheet>
-                    </form>
-                </data>
+                            <group name="proof_of_request_up_right">
+                                <field name="proof_image" widget="image" string="Image"
+                                       options="{&quot;size&quot;:[270,270]}"/>
+                            </group>
+                        </group>
+                        <notebook name="proof_of_request_notebook">
+                            <page name="Orders" string="Orders">
+                                <field name="order_line">
+                                    <tree>
+                                        <field name="name" string="Product"/>
+                                        <field name="product_uom_qty"/>
+                                        <field name="price_subtotal"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
             </field>
         </record>
 
         <!-- actions opening views on models -->
         <record model="ir.actions.act_window" id="expeditor_management.action_window">
             <field name="name">Expeditor requests</field>
-            <field name="res_model">expeditor_management.expeditor_management</field>
+            <field name="res_model">expeditor_management</field>
+            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
