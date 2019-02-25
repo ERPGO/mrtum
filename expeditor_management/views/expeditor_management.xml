@@ -2,7 +2,7 @@
     <data>
         <!-- list view definition -->
         <record model="ir.ui.view" id="expeditor_management.list">
-            <field name="name">expeditor_management list</field>
+            <field name="name">Expeditor requests list</field>
             <field name="model">expeditor_management.expeditor_management</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
@@ -16,29 +16,40 @@
 
         <!-- Form view definition -->
         <record model="ir.ui.view" id="expeditor_management.form">
-            <field name="name">expeditor_management form</field>
+            <field name="name">Expeditor requests form</field>
             <field name="model">expeditor_management.expeditor_management</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                        <sheet string="Proof of Requests">
+                <data>
+                    <form>
+                        <sheet string="Expeditor Requests">
                             <group name="proof_of_request_up">
-                                <group name="proof_of_request_up_left"/>
-                                <field name="order_id" string="Sale Order"/>
-                                <field name="location_id" string="Customer Location"/>
-                                <field name="street" string="Street name"/>
-                                <field name="map_location" string="Map Location"/>
-                            </group>
-                            <group name="proof_of_request_up_right">
-                                <field name="proof_image" widget="image"
-                                       string="Image"/>
+                                <group name="proof_of_request_up_left">
+                                    <field name="order_id" string="Sale Order"/>
+                                    <field name="partner_id" string="Customer"/>
+                                    <field name="location_id" string="Customer Location"/>
+                                    <field name="street" string="Street name"/>
+                                    <field name="map_location" string="Map Location"/>
+                                </group>
+                                <group name="proof_of_request_up_right">
+                                    <field name="proof_image" widget="image" string="Image"
+                                           options="{&quot;size&quot;:[270,270]}"/>
+                                </group>
                             </group>
                             <notebook name="proof_of_request_notebook">
                                 <page name="Orders" string="Orders">
-                                    <field name="order_line" string="Order Lines"
-                                           widget="section_and_note_one2many"/>
+                                    <field name="order_line">
+                                        <tree>
+                                            <field name="name" string="Product"/>
+                                            <field name="product_uom_qty"/>
+                                            <field name="price_subtotal"/>
+                                        </tree>
+                                    </field>
                                 </page>
                             </notebook>
                         </sheet>
+                    </form>
+                </data>
             </field>
         </record>
 
@@ -50,7 +61,7 @@
         </record>
 
         <!-- menu categories -->
-        <menuitem name="Proof of Requests" id="expeditor_management.menu_1" parent="stock.menu_stock_warehouse_mgmt"
+        <menuitem name="Expeditor Requests" id="expeditor_management.menu_1" parent="stock.menu_stock_warehouse_mgmt"
                   action="expeditor_management.action_window"/>
     </data>
 </odoo>
