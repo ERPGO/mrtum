@@ -36,5 +36,6 @@
     'demo': [
         'demo/demo.xml',
     ],
-    'Application': True,
+    'installable': True,
+    'application': True,
 }
