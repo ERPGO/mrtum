@@ -13,6 +13,7 @@ class expeditor_management(models.Model):
     order_line = fields.One2many('sale.order.line', related='order_id.order_line')
     location_id = fields.Many2one(string="Customer Location", related='order_id.location_id')
     partner_id = fields.Many2one(string="Customer", related='order_id.partner_id')
+    user_id = fields.Many2one(string="Expeditor", related='order_id.user_id')
     proof_image = fields.Binary(string="Proof Image")
 
     

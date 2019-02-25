@@ -27,14 +27,15 @@
                         <group name="proof_of_request_up">
                             <group name="proof_of_request_up_left">
                                 <field name="order_id" string="Sale Order"/>
+                                <field name="user_id" string="Expeditor"/>
                                 <field name="partner_id" string="Customer"/>
                                 <field name="location_id" string="Customer Location"/>
-                                <field name="street" string="Street name"/>
-                                <field name="map_location" string="Map Location"/>
                             </group>
                             <group name="proof_of_request_up_right">
                                 <field name="proof_image" widget="image" string="Image"
                                        options="{&quot;size&quot;:[270,270]}"/>
+                                <field name="street" string="Street name"/>
+                                <field name="map_location" string="Map Location"/>
                             </group>
                         </group>
                         <notebook name="proof_of_request_notebook">
