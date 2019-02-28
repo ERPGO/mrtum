@@ -6,7 +6,7 @@ from datetime import datetime, date
 
 
 class expeditor_assignments(models.Model):
-    _name = "expeditor_management.assignment"
+    _name = "expeditor_assignment"
     _description = "Expeditor Management"
     
     name = fields.Char(string="Name", default="_get_assignment_name")
@@ -20,12 +20,12 @@ class expeditor_assignments(models.Model):
         print(str(current_year) + " " + current_month + " Week " + str(week_number))        
     
     user_id = fields.Many2one('res.users', string="Expeditor")
-    request_ids = fields.One2many('expeditor_management.requests', 'assignment_id', string="Requests")
+    request_ids = fields.One2many('expeditor_requests', 'assignment_id', string="Requests")
     
     
     
 class expeditor_requests(models.Model):
-    _name = "expeditor_management.requests"
+    _name = "expeditor_requests"
     _description = "Expeditor Requests"
 
     name = fields.Char(string="Name", default=date.today())
@@ -35,7 +35,7 @@ class expeditor_requests(models.Model):
     partner_id = fields.Many2one(string="Customer", related='location_id.partner_id')
     user_id = fields.Many2one('res.users', string="Expeditor")
     proof_image = fields.Binary(string="Proof Image")
-    assignment_id = fields.Many2one('expeditor_management.assignments', string="Assignment")
+    assignment_id = fields.Many2one('expeditor_assignment', string="Assignment")
     
     street = fields.Char(string="Street")
     map_location = fields.Html(string="Map location", compute="_get_map_url")

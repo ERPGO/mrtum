@@ -3,7 +3,7 @@
         <!-- list view definition -->
         <record model="ir.ui.view" id="expeditor_management_list">
             <field name="name">Expeditor requests list</field>
-            <field name="model">expeditor_management.requests</field>
+            <field name="model">expeditor_requests</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name" string="Date"/>
@@ -17,7 +17,7 @@
         <record id="expeditor_management_requests_form"
                 model="ir.ui.view">
             <field name="field_parent" eval="False"/>
-            <field name="model">expeditor_management.requests</field>
+            <field name="model">expeditor_requests</field>
             <field name="name">Expeditor Requests View Form</field>
             <field name="type">form</field>
             <field name="active" eval="True"/>
@@ -57,7 +57,7 @@
         <!-- actions opening views on models -->
         <record model="ir.actions.act_window" id="expeditor_management.action_window">
             <field name="name">Expeditor requests</field>
-            <field name="res_model">expeditor_management.requests</field>
+            <field name="res_model">expeditor_requests</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
