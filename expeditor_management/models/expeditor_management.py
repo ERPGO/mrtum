@@ -5,8 +5,8 @@ from datetime import datetime, date
 
 
 
-class expeditor_assignment(models.Model):
-    _name = "expeditor_management.assignments"
+class expeditor_assignments(models.Model):
+    _name = "expeditor_management.assignment"
     _description = "Expeditor Management"
     
     name = fields.Char(string="Name", default="_get_assignment_name")

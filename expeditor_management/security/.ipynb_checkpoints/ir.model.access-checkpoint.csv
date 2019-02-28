@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_expeditor_management,expeditor_management,model_expeditor_management,,1,1,1,1
+access_expeditor_management_requests,expeditor_management.requests,model_expeditor_management_requests,,1,1,1,1
+access_expeditor_management_assignment,expeditor_management.assignment,model_expeditor_management_assignment,,1,1,1,1
