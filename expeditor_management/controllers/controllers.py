@@ -13,8 +13,6 @@ from odoo import http
 #             'objects': http.request.env['expeditor_management.expeditor_management'].search([]),
 #         })
 
-#     @http.route('/expeditor_management/expeditor_management/objects/<model("expeditor_management.expeditor_management"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('expeditor_management.object', {
-#             'object': obj
-#         })
+# @http.route('/expeditor_management/expeditor_management/objects/<model(
+# "expeditor_management.expeditor_management"):obj>/', auth='public') def object(self, obj, **kw): return
+# http.request.render('expeditor_management.object', { 'object': obj })

@@ -7,4 +7,3 @@ class SaleOrderExpeditor(models.Model):
     _inherit = 'res.users'
 
     is_expeditor = fields.Boolean(string="Is a Exspeditor", default=True)
-    
