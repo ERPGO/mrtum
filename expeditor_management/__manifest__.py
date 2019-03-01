@@ -6,7 +6,7 @@
         Expeditor management module""",
 
     'description': """
-        Expeditor management module
+        Expeditor management module for Product distrubition to Retail stores
     """,
 
     'author': "ERPGO",
