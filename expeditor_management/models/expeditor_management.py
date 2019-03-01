@@ -8,7 +8,7 @@ class expeditor_assignment(models.Model):
     _name = "expeditor_assignment"
     _description = "Expeditor Management"
 
-    name = fields.Char(string="Name", default='_get_assignment_name()')
+    name = fields.Char(string="Name", default="_get_assignment_name")
 
     @api.one
     def _get_assignment_name(self):
