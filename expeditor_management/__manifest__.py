@@ -29,7 +29,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/expeditor_management.xml',
+        'views/expeditor_requests.xml',
+        'views/expeditor_assignment.xml',
         'views/sale_order.xml',
     ],
     # only loaded in demonstration mode

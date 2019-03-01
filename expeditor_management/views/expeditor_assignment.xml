@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <!-- list view definition -->
+        <record model="ir.ui.view" id="expeditor_management_list">
+            <field name="name">Expeditor Assignment list</field>
+            <field name="model">expeditor_assignment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="name" string="Week"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view definition -->
+        <record id="expeditor_management_requests_form"
+                model="ir.ui.view">
+            <field name="field_parent" eval="False"/>
+            <field name="model">expeditor_assignment</field>
+            <field name="name">Expeditor Assignment View Form</field>
+            <field name="type">form</field>
+            <field name="active" eval="True"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="Expeditor Assignment">
+                        <group name="group_assignment_up">
+                            <group name="group_assignment_up_left">
+                                <field name="user_id" string="Expeditor"/>
+                            </group>
+                            <group name="group_assignment_up_right">
+                            </group>
+                        </group>
+                        <notebook name="group_assignment_notebook">
+                            <page name="Requests" string="Requests">
+                                <field name="request_ids">
+                                    <tree>
+                                        <field name="name" string="Date"/>
+                                        <field name="user_id"/>
+                                        <field name="location_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="expeditor_assignment_action_window">
+            <field name="name">Expeditor Assignment</field>
+            <field name="res_model">expeditor_assignment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem name="Expeditor Assignment" id="expeditor_assignment_menu_1" parent="stock.menu_stock_root"
+                  action="expeditor_assignment_action_window"/>
+    </data>
+</odoo>

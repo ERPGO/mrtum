@@ -5,11 +5,11 @@ from datetime import datetime, date
 
 
 
-class expeditor_assignments(models.Model):
+class expeditor_assignment(models.Model):
     _name = "expeditor_assignment"
     _description = "Expeditor Management"
     
-    name = fields.Char(string="Name", default="_get_assignment_name")
+    name = fields.Char(string="Name", default='_get_assignment_name')
 
     def _get_assignment_name():
         current_date = datetime.now()
