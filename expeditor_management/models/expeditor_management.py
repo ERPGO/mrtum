@@ -8,16 +8,17 @@ class expeditor_assignment(models.Model):
     _name = "expeditor_assignment"
     _description = "Expeditor Management"
 
-    name = fields.Char(string="Name", default="_get_assignment_name")
-
-    @api.one
     def _get_assignment_name(self):
         current_date = datetime.now()
         current_month = current_date.strftime("%B")
         day_of_month = current_date.day
         current_year = current_date.year
         week_number = (day_of_month - 1) // 7 + 1
-        print(str(current_year) + " " + current_month + " Week " + str(week_number))
+        name = str(current_year) + " " + current_month + " Week " + str(week_number)
+        return name
+
+    name = fields.Char(string="Name", default=lambda self: self._get_assignment_name())
+
 
     user_id = fields.Many2one('res.users', string="Expeditor")
     request_ids = fields.One2many('expeditor_requests', 'assignment_id', string="Requests")
